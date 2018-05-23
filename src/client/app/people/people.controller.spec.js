@@ -1,9 +1,10 @@
 /* jshint -W117, -W030 */
-describe.only('PeopleController', function() {
+describe('PeopleController', function() {
   var controller;
   var people = mockData.getMockPeople();
 
   beforeEach(function () {
+
     bard.appModule('app.people');
     bard.inject('$controller', '$log', '$q', '$rootScope', 'dataservice');
 
