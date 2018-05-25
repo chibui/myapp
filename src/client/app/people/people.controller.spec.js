@@ -5,7 +5,8 @@ describe('PeopleController', function() {
 
   beforeEach(function () {
 
-    bard.appModule('app.people');
+    // bard.appModule('app.people');
+    module('app.people');
     bard.inject('$controller', '$log', '$q', '$rootScope', 'dataservice');
 
     var ds = {
@@ -32,7 +33,15 @@ describe('PeopleController', function() {
 
   describe('after activation', function () {
     beforeEach(function () {
+      bard.inject('$state');
       $rootScope.$apply();
+    });
+
+    it('should change state when selecting person', function () {
+      controller.goToPerson({id:3});
+
+      $rootScope.$apply();
+      expect($state.current.name).to.equal('person');
     });
 
     it('should have people', function () {

@@ -26,6 +26,16 @@
             content: '<i class="fa fa-user"></i> People'
           }
         }
+      },
+      {
+        state: 'person',
+        config: {
+          url: '/person/:id',
+          template: '<div>Person View</div>',
+          // controller: 'PersonController',
+          // controllerAs: 'vm',
+          title: 'Person'
+        }
       }
     ];
   }
